@@ -1,4 +1,4 @@
-# MERN
+# MEAN
 
 ![alt-text](https://1.bp.blogspot.com/-nsSX5pGjbCo/XO1ZzJ34BVI/AAAAAAAAAU4/8ucwpNV2--4xn0L2hLDDRgJfmjC73TpeQCEwYBhgL/s1600/mean-stacks-main.jpg)
 
