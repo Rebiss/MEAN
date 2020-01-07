@@ -4,12 +4,15 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const path = require('path');
-const config = require('config')
-
+const config = require('config');
+const account = require('./routes/account');
+const PORT = config.get('port') || 3011;
 const app = express();
 
-const PORT = config.get('port') || 3011;
 app.use(cors());
+
+app.use(bodyParser.json());
+
 
 async function connect() {
     try {
@@ -18,8 +21,9 @@ async function connect() {
             useUnifiedTopology: true,
             useCreateIndex: true
         });
-        console.log(`DB connect`)
+        console.log(`DB connect`);
         app.listen(PORT, () => console.log(`Server is ruuning ${PORT} .... `) );
+
     } catch (error) {
         console.log(`Don't connect DB ${error}`)
     }
@@ -28,4 +32,7 @@ async function connect() {
 connect()
 
 app.use(express.static(path.join(__dirname, 'public')));
+
 app.get('/', (req,res) => { res.send('Root Directory') });
+
+app.use('/account', account);
