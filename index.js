@@ -21,17 +21,17 @@ async function connect() {
             useUnifiedTopology: true,
             useCreateIndex: true
         });
-        console.log(`DB connect`);
+
         app.listen(PORT, () => console.log(`Server is ruuning ${PORT} .... `) );
 
-    } catch (error) {
-        console.log(`Don't connect DB ${error}`)
+    } catch {
+        console.log(`Don't connect DB`)
     }
 }
 
 connect()
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static( path.join(__dirname, 'public') ));
 
 app.get('/', (req,res) => { res.send('Root Directory') });
 
