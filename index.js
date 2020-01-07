@@ -9,8 +9,23 @@ const config = require('config')
 const app = express();
 
 const PORT = config.get('port') || 3011;
+app.use(cors());
 
-app.get('/', (req,res) => {
-    res.send('Root Directory')
-});
-app.listen(PORT, () => console.log(`Server is ruuning ${PORT} .... `) );
+async function connect() {
+    try {
+        await mongoose.connect(config.get('db'), {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            useCreateIndex: true
+        });
+        console.log(`DB connect`)
+        app.listen(PORT, () => console.log(`Server is ruuning ${PORT} .... `) );
+    } catch (error) {
+        console.log(`Don't connect DB ${error}`)
+    }
+}
+
+connect()
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.get('/', (req,res) => { res.send('Root Directory') });
