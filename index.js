@@ -13,7 +13,6 @@ app.use(cors());
 
 app.use(bodyParser.json());
 
-
 async function connect() {
     try {
         await mongoose.connect(config.get('db'), {
