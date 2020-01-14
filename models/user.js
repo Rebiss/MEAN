@@ -12,7 +12,7 @@ const userShema = mongoose.Schema({
 
 const User = module.exports = mongoose.model('User', userShema);
 
-module.exports.getUserByLogin = function (login, callback) {
+module.exports.getUserByLogin =  (login, callback) => {
     const query = {login: login};
     User.findOne(query, callback);
 };
@@ -29,4 +29,12 @@ module.exports.addUser = (newUser, callback) => {
             newUser.save(callback);
         })
     });
+};
+
+
+module.exports.comparePass = (passFromUser, userDBPass, callback) => {
+    bcript.compare(passFromUser, userDBPass, (err, isMatch) => {
+        if(err) throw err;
+        callback(null, isMatch);
+    })
 };

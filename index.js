@@ -9,6 +9,12 @@ const account = require('./routes/account');
 const PORT = config.get('port') || 3011;
 const app = express();
 
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+require('./config/passport')(passport);
+
 app.use(cors());
 
 app.use(bodyParser.json());
