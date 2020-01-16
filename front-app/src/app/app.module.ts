@@ -10,6 +10,7 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
 import { HomeComponent } from "./home/home.component";
 
 import { RouterModule, Routes } from "@angular/router";
+import { FooterComponent } from './footer/footer.component';
 
 const appRout: Routes = [
   { path: "", component: HomeComponent },
@@ -24,7 +25,8 @@ const appRout: Routes = [
     RegComponent,
     AuthComponent,
     DashboardComponent,
-    HomeComponent
+    HomeComponent,
+    FooterComponent
   ],
   imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot(appRout)],
   providers: [],
