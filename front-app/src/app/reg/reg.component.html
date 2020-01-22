@@ -10,16 +10,18 @@
     <div class="col-md-8 order-md-1">
       <form class="needs-validation" action="#">
         <div class="row">
+
           <div class="col-md-6 mb-3">
             <label for="firstName">First name</label>
-            <input type="text" [(ngModel)]="firstName" class="form-control" id="firstName" required="">
+            <input type="text" [(ngModel)]="firstName" name='firstName' class="form-control" id="firstName" required="">
             <div class="invalid-feedback">
               Valid first name is required.
             </div>
           </div>
+
           <div class="col-md-6 mb-3">
             <label for="lastName">Last name</label>
-            <input type="text" [(ngModel)]="lastName" class="form-control" id="lastName" required="">
+            <input type="text" [(ngModel)]="lastName" name='lastName' class="form-control" id="lastName" required="">
             <div class="invalid-feedback">
               Valid last name is required.
             </div>
@@ -28,7 +30,7 @@
 
         <div class="mb-3">
           <label for="login">Login</label>
-          <input type="text" [(ngModel)]="login" class="form-control" id="login" placeholder="Login">
+          <input type="text" [(ngModel)]="login" name='login' class="form-control" id="login" placeholder="Login">
           <div class="invalid-feedback">
             Please enter a valid Login.
           </div>
@@ -36,7 +38,8 @@
 
         <div class="mb-3">
           <label for="email">Email</label>
-          <input type="email" [(ngModel)]="email" class="form-control" id="email" placeholder="you@example.com">
+          <input type="email" [(ngModel)]="email" name='email' class="form-control" id="email"
+            placeholder="you@example.com">
           <div class="invalid-feedback">
             Please enter a valid email address for shipping updates.
           </div>
@@ -44,8 +47,8 @@
 
         <div class="mb-3">
           <label for="address">Password</label>
-          <input type="password" [(ngModel)]="password" class="form-control" id="address" placeholder="******"
-            required="">
+          <input type="password" [(ngModel)]="password" name='password' class="form-control" id="address"
+            placeholder="******" required="">
           <div class="invalid-feedback">
             Please enter your shipping address.
           </div>

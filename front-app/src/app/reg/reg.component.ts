@@ -17,7 +17,14 @@ export class RegComponent implements OnInit {
   ngOnInit() {}
 
   userRegisterClick() {
-    console.log("===>", this.firstName);
-    return false;
+    const user = {
+      firstName: this.firstName,
+      lastName: this.lastName,
+      login: this.login,
+      email: this.email,
+      password: this.password
+    };
+
+    console.log("******", user);
   }
 }
