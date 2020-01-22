@@ -6,16 +6,18 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./reg.component.css"]
 })
 export class RegComponent implements OnInit {
-
-  firstName: String,
-  lastName: String,
+  firstName: String;
+  lastName: String;
+  login: String;
+  email: String;
+  password: String;
 
   constructor() {}
 
   ngOnInit() {}
 
   userRegisterClick() {
-    console.log("Hello Angular ");
+    console.log("===>", this.firstName);
     return false;
   }
 }

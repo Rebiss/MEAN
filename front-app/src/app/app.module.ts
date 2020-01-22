@@ -10,7 +10,9 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
 import { HomeComponent } from "./home/home.component";
 
 import { RouterModule, Routes } from "@angular/router";
-import { FooterComponent } from './footer/footer.component';
+import { FooterComponent } from "./footer/footer.component";
+
+import { FormsModule } from "@angular/forms";
 
 const appRout: Routes = [
   { path: "", component: HomeComponent },
@@ -28,7 +30,12 @@ const appRout: Routes = [
     HomeComponent,
     FooterComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot(appRout)],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    RouterModule.forRoot(appRout),
+    FormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
