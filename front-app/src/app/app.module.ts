@@ -16,6 +16,7 @@ import { FormsModule } from "@angular/forms";
 import { CheckFormService } from "./check-form.service";
 import { FlashMessagesModule } from "angular2-flash-messages";
 import { AuthService } from "./auth.service";
+import { HttpModule } from "@angular/http";
 
 const appRout: Routes = [
   { path: "", component: HomeComponent },
@@ -38,7 +39,8 @@ const appRout: Routes = [
     AppRoutingModule,
     RouterModule.forRoot(appRout),
     FormsModule,
-    FlashMessagesModule.forRoot()
+    FlashMessagesModule.forRoot(),
+    HttpModule
   ],
   providers: [CheckFormService, AuthService],
   bootstrap: [AppComponent]

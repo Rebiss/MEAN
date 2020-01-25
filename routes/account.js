@@ -22,7 +22,7 @@ router.post('/reg', (req,res) => {
     });
 
     User.addUser(newUser, (error, user) => {
-        error ? res.json({succes: false, msg: "user is not added to DB"}) : res.json({succes: true, msg: "user added to DB"})
+        error ? res.json({success: false, msg: "user is not added to DB"}) : res.json({success: true, msg: "user added to DB"})
     });
 });
 

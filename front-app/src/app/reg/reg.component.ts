@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { CheckFormService } from "../check-form.service";
+import { AuthService } from "../auth.service";
 import { FlashMessagesService } from "angular2-flash-messages";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-reg",
@@ -16,7 +18,9 @@ export class RegComponent implements OnInit {
 
   constructor(
     private checkForm: CheckFormService,
-    private flashMessages: FlashMessagesService
+    private flashMessages: FlashMessagesService,
+    private router: Router,
+    private authService: AuthService
   ) {}
 
   ngOnInit() {}
@@ -43,39 +47,55 @@ export class RegComponent implements OnInit {
 
     if (!this.checkForm.checkFirstName(user.firstName)) {
       this.flashMessages.show("Cant user First Name", {
-        className: "alert-danger",
+        cssClass: "alert-danger",
         timeout: 4000
       });
 
       return false;
     } else if (!this.checkForm.checkLastName(user.lastName)) {
       this.flashMessages.show("Cant user LastName", {
-        className: "alert-danger",
+        cssClass: "alert-danger",
         timeout: 4000
       });
 
       return false;
     } else if (!this.checkForm.checkLogin(user.login)) {
       this.flashMessages.show("Cant user login", {
-        className: "alert-danger",
+        cssClass: "alert-danger",
         timeout: 4000
       });
 
       return false;
     } else if (!this.checkForm.checkEmail(user.email)) {
       this.flashMessages.show("Cant user E-mail", {
-        className: "alert-danger",
+        cssClass: "alert-danger",
         timeout: 4000
       });
 
       return false;
     } else if (!this.checkForm.checkPassword(user.password)) {
       this.flashMessages.show("Cant user Password", {
-        className: "alert-danger",
+        cssClass: "alert-danger",
         timeout: 4000
       });
 
       return false;
     }
+
+    this.authService.registerUser(user).subscribe(data => {
+      if (!data.success) {
+        this.flashMessages.show(data.msg, {
+          cssClass: "alert-danger",
+          timeout: 2000
+        });
+        this.router.navigate(["/reg"]);
+      } else {
+        this.flashMessages.show(data.msg, {
+          cssClass: "alert-success",
+          timeout: 2000
+        });
+        this.router.navigate(["/auth"]);
+      }
+    });
   }
 }
