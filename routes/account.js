@@ -14,7 +14,8 @@ router.get('/reg', (req,res) => {
 
 router.post('/reg', (req,res) => { 
     let newUser = new user({
-        name: req.body.name,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
         email: req.body.email,
         login: req.body.login,
         pass: req.body.pass,
