@@ -25,5 +25,20 @@ export class AuthComponent implements OnInit {
       login: this.login,
       password: this.password
     };
+
+    this.authService.authUser(user).subscribe(data => {
+      if (!data.success) {
+        this.flashMessages.show(data.msg, {
+          cssClass: "alert-danger",
+          timeout: 4000
+        });
+      } else {
+        this.flashMessages.show('Auth login Success', {
+          cssClass: "alert-success",
+          timeout: 4000
+      }
+      this.router.navigate(['dashboard']);
+      this.authService.storeUser(data.token, data.user);
+    });
   }
 }
