@@ -15,4 +15,12 @@ export class AuthService {
       .post("http://localhost:3011/account/reg", user, { headers: headers })
       .pipe(map((res: any) => res.json()));
   }
+
+  authUser(user) {
+    let headers = new Headers();
+    headers.append("Content-Type", "application/json");
+    return this.http
+      .post("http://localhost:3011/account/auth", user, { headers: headers })
+      .pipe(map((res: any) => res.json()));
+  }
 }

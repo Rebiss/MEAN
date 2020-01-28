@@ -24,19 +24,22 @@
 <div class="form">
   <h2>Sign up</h2>
   <div class="input">
-    <div class="inputBox">
-      <label>Login</label>
-      <input type="text" name="" placeholder="Login" />
-    </div>
+    <form (submit)='userLoginClick()'>
+      <div class="inputBox">
+        <label>Login</label>
+        <input type="text" [(ngModel)]="login" name="login" placeholder="Login" />
+      </div>
 
-    <div class="inputBox">
-      <label>Password</label>
-      <input type="password" name="pass" placeholder="******" />
-    </div>
+      <div class="inputBox">
+        <label>Password</label>
+        <input type="password" [(ngModel)]="password" name="password" placeholder="******" />
+      </div>
 
-    <div class="inputBox">
-      <input type="submit" value="Sign In" />
-    </div>
+      <div class="inputBox">
+        <input type="submit" value="Sign In" />
+      </div>
+    </form>
+
     <p class="forget">Forget Password ? <a href="#">Click Here</a></p>
   </div>
 </div>
