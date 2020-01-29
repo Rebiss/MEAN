@@ -26,6 +26,14 @@ export class AuthComponent implements OnInit {
       password: this.password
     };
 
+    if (user.password == "" || user.login == "") {
+      this.flashMessages.show("Write Password or Login", {
+        cssClass: "alert-danger",
+        timeout: 4000
+      });
+      return false;
+    }
+
     this.authService.authUser(user).subscribe(data => {
       if (!data.success) {
         this.flashMessages.show(data.msg, {
@@ -33,12 +41,14 @@ export class AuthComponent implements OnInit {
           timeout: 4000
         });
       } else {
-        this.flashMessages.show('Auth login Success', {
+        this.flashMessages.show("Auth login Success", {
           cssClass: "alert-success",
           timeout: 4000
+        });
+
+        this.router.navigate(["dashboard"]);
+        this.authService.storeUser(data.token, data.user);
       }
-      this.router.navigate(['dashboard']);
-      this.authService.storeUser(data.token, data.user);
     });
   }
 }

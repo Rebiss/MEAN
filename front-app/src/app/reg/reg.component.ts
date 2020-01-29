@@ -39,11 +39,11 @@ export class RegComponent implements OnInit {
     //   return false;
     // }
 
-    console.log(this.checkForm.checkFirstName(user.firstName));
-    console.log(this.checkForm.checkLastName(user.lastName));
-    console.log(this.checkForm.checkLogin(user.login));
-    console.log(this.checkForm.checkEmail(user.email));
-    console.log(this.checkForm.checkPassword(user.password));
+    //console.log(this.checkForm.checkFirstName(user.firstName));
+    // console.log(this.checkForm.checkLastName(user.lastName));
+    // console.log(this.checkForm.checkLogin(user.login));
+    // console.log(this.checkForm.checkEmail(user.email));
+    // console.log(this.checkForm.checkPassword(user.password));
 
     if (!this.checkForm.checkFirstName(user.firstName)) {
       this.flashMessages.show("Cant user First Name", {
@@ -82,20 +82,20 @@ export class RegComponent implements OnInit {
       return false;
     }
 
-    // this.authService.registerUser(user).subscribe(data => {
-    //   if (!data.success) {
-    //     this.flashMessages.show(data.msg, {
-    //       cssClass: "alert-danger",
-    //       timeout: 2000
-    //     });
-    //     this.router.navigate(["/reg"]);
-    //   } else {
-    //     this.flashMessages.show(data.msg, {
-    //       cssClass: "alert-success",
-    //       timeout: 2000
-    //     });
-    //     this.router.navigate(["/auth"]);
-    //   }
-    // });
+    this.authService.registerUser(user).subscribe(data => {
+      if (!data.success) {
+        this.flashMessages.show(data.msg, {
+          cssClass: "alert-danger",
+          timeout: 2000
+        });
+        this.router.navigate(["/reg"]);
+      } else {
+        this.flashMessages.show(data.msg, {
+          cssClass: "alert-success",
+          timeout: 2000
+        });
+        this.router.navigate(["/auth"]);
+      }
+    });
   }
 }
