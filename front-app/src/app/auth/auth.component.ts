@@ -26,7 +26,7 @@ export class AuthComponent implements OnInit {
       password: this.password
     };
 
-    if (user.password == "" || user.login == "") {
+    if (user.password == undefined) {
       this.flashMessages.show("Write Password or Login", {
         cssClass: "alert-danger",
         timeout: 4000
