@@ -23,7 +23,7 @@ module.exports.getUserById = (id, callback) => {
 };
 
 module.exports.addUser = (newUser, callback) => {
-    bcript.genSalt(11, (error, salt) => {
+    bcript.genSalt(10, (error, salt) => {
         bcript.hash(newUser.pass, salt, (error, hash) => {
             if(error) throw error;
             newUser.pass = hash;

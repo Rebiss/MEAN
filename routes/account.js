@@ -13,11 +13,12 @@ router.get('/reg', (req,res) => {
 });
 
 router.post('/reg', (req,res) => { 
-    let newUser = new user({
+    console.log('*****', req.body)
+    let newUser = new User({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
-        email: req.body.email,
         login: req.body.login,
+        email: req.body.email,
         pass: req.body.pass,
     });
 
@@ -39,7 +40,7 @@ router.post('/auth', (req,res) => {
         User.comparePass(password, user.password, (err, isMatch) => {
             if(err) throw err;
             if(isMatch) {
-                const token = jwt.sign(user, secret, {
+                const token = jwt.sign(user.toJSON(), secret, {
                     expiresIn: 3600 * 24
                 });
 
