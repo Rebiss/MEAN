@@ -18,11 +18,17 @@ import { FlashMessagesModule } from "angular2-flash-messages";
 import { AuthService } from "./auth.service";
 import { HttpModule } from "@angular/http";
 
+import { IsLoggedIn } from "./isLogged.guard";
+
 const appRout: Routes = [
   { path: "", component: HomeComponent },
   { path: "reg", component: RegComponent },
   { path: "auth", component: AuthComponent },
-  { path: "dashboard", component: DashboardComponent }
+  {
+    path: "dashboard",
+    component: DashboardComponent,
+    canActivate: [IsLoggedIn]
+  }
 ];
 @NgModule({
   declarations: [
@@ -42,7 +48,7 @@ const appRout: Routes = [
     FlashMessagesModule.forRoot(),
     HttpModule
   ],
-  providers: [CheckFormService, AuthService],
+  providers: [CheckFormService, AuthService, IsLoggedIn],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

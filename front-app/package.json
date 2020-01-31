@@ -24,6 +24,7 @@
     "angular2-flash-messages": "^3.0.1",
     "angular2-jwt": "^0.2.3",
     "rxjs": "~6.4.0",
+    "rxjs-compat": "^6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },
