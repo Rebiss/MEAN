@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-const bcript = require('bcryptjs');
-const config = require('config');
+const bcript   = require('bcryptjs');
+const config   = require('config');
 
 module.exports = mongoose.model('User', mongoose.Schema({
     email:      {type: String, required: true },
@@ -28,7 +28,6 @@ module.exports.addUser = (newUser, callback) => {
         })
     });
 };
-
 
 module.exports.comparePass = (passFromUser, userDBPass, callback) => {
     bcript.compare(passFromUser, userDBPass, (err, isMatch) => {
