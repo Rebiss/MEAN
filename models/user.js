@@ -2,16 +2,13 @@ const mongoose = require('mongoose');
 const bcript = require('bcryptjs');
 const config = require('config');
 
-const userShema = mongoose.Schema({
+module.exports = mongoose.model('User', mongoose.Schema({
+    email:      {type: String, required: true },
+    login:      {type: String, required: true },
+    pass :      {type: String, required: true },
     firstName : { type: String},
-    lastName : { type: String},
-    email: {type: String, required: true },
-    login: {type: String, required: true },
-    pass : {type: String, required: true },
-});
-
-
-const User = module.exports = mongoose.model('User', userShema);
+    lastName :  { type: String},
+}););
 
 module.exports.getUserByLogin =  (login, callback) => {
     const query = {login: login};
