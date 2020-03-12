@@ -1,9 +1,9 @@
 const config = require('config');
-const User = require('../models/user');
+const User   = require('../models/user');
 const JwtStrategy = require('passport-jwt').Strategy;
-const ExtractJwt = require('passport-jwt').ExtractJwt;
+const ExtractJwt  = require('passport-jwt').ExtractJwt;
 
-const db = config.get('db');
+const db     = config.get('db');
 const secret = config.get('secret');
 
 module.exports = passport => {

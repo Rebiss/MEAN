@@ -1,11 +1,11 @@
-const express = require('express');
-const router = express.Router();
-const User = require('../models/user');
-const config = require('config');
+const express  = require('express');
+const User     = require('../models/user');
+const config   = require('config');
 const passport = require('passport');
-const jwt = require('jsonwebtoken');
+const jwt      = require('jsonwebtoken');
 
-const db = config.get('db');
+const router = express.Router();
+const db     = config.get('db');
 const secret = config.get('db');
 
 router.get('/reg', (req,res) => { 
