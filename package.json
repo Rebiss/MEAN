@@ -18,9 +18,9 @@
   },
   "homepage": "https://github.com/Rebiss/MEAN-steck#readme",
   "dependencies": {
-    "@angular/core": "^8.2.14",
-    "@angular/http": "^2.1.2",
-    "@angular/platform-browser": "^8.2.14",
+    "@angular/core": "^9.0.7",
+    "@angular/http": "^7.2.16",
+    "@angular/platform-browser": "^9.0.7",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "config": "^3.2.4",
