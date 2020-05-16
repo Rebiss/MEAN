@@ -18,19 +18,19 @@
   },
   "homepage": "https://github.com/Rebiss/MEAN-steck#readme",
   "dependencies": {
-    "@angular/core": "^9.0.7",
+    "@angular/core": "^9.1.7",
     "@angular/http": "^7.2.16",
-    "@angular/platform-browser": "^9.0.7",
+    "@angular/platform-browser": "^9.1.7",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
-    "config": "^3.2.4",
+    "config": "^3.3.1",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.8.5",
-    "nodemon": "^2.0.2",
+    "mongoose": "^5.9.14",
+    "nodemon": "^2.0.4",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
-    "rxjs": "^6.5.4"
+    "rxjs": "^6.5.5"
   }
 }

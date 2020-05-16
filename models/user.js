@@ -8,7 +8,7 @@ module.exports = mongoose.model('User', mongoose.Schema({
     pass :      {type: String, required: true },
     firstName : { type: String},
     lastName :  { type: String},
-}););
+}));
 
 module.exports.getUserByLogin =  (login, callback) => {
     const query = {login: login};
