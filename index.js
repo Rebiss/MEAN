@@ -38,6 +38,6 @@ connect()
 
 app.use(express.static( path.join(__dirname, 'public') ));
 
-app.get('/', (req,res) => { res.send('Root Directory') });
+app.get('/', (req,res) => res.send('Root Directory') );
 
 app.use('/account', account);

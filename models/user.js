@@ -3,9 +3,9 @@ const bcript   = require('bcryptjs');
 const config   = require('config');
 
 module.exports = mongoose.model('User', mongoose.Schema({
-    email:      {type: String, required: true },
-    login:      {type: String, required: true },
-    pass :      {type: String, required: true },
+    email:      { type: String, required: true },
+    login:      { type: String, required: true },
+    pass :      { type: String, required: true },
     firstName : { type: String},
     lastName :  { type: String},
 }));
