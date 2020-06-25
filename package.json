@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "server": "nodemon index.js",
-    "prod": "ng build --prod"
+    "front": "./front-app"
   },
   "repository": {
     "type": "git",
