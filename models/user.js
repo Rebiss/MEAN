@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const bcript   = require('bcryptjs');
 const config   = require('config');
 
-module.exports = mongoose.model('User', mongoose.Schema({
+const User = module.exports = mongoose.model('User', mongoose.Schema({
     email:      { type: String, required: true },
     login:      { type: String, required: true },
     pass :      { type: String, required: true },
@@ -10,7 +10,7 @@ module.exports = mongoose.model('User', mongoose.Schema({
     lastName :  { type: String},
 }));
 
-module.exports.getUserByLogin =  (login, callback) => {
+module.exports.getUserByLogin = (login, callback) => {
     const query = {login: login};
     User.findOne(query, callback);
 };
