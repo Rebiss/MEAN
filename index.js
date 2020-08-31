@@ -18,6 +18,12 @@ app.use(cors());
 
 app.use(bodyParser.json());
 
+app.use(express.static( path.join(__dirname, 'public') ));
+
+app.get('/', (req,res) => res.send('Root Directory') );
+
+app.use('/account', account);
+
 async function connect() {
     try {
         await mongoose.connect(config.get('db'), {
@@ -35,8 +41,3 @@ async function connect() {
 
 connect()
 
-app.use(express.static( path.join(__dirname, 'public') ));
-
-app.get('/', (req,res) => res.send('Root Directory') );
-
-app.use('/account', account);

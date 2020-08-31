@@ -13,15 +13,15 @@ router.get('/reg', (req,res) => {
 });
 
 router.post('/reg', (req,res) => { 
-    console.log('*****', req.body)
+    // console.log('>>>>>>>REC_BODY>>>>>>>>', req.body )
     let newUser = new User({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         login: req.body.login,
         email: req.body.email,
-        pass: req.body.pass,
+        pass: req.body.password,
     });
-
+    // console.log('ACOUNT>>>>>>>', newUser)
     User.addUser(newUser, (error, user) => {
         error ? res.json({success: false, msg: "user is not added to DB"}) : res.json({success: true, msg: "user added to DB"})
     });
@@ -33,16 +33,12 @@ router.post('/auth', (req,res) => {
 
     User.getUserByLogin(login, (err, user) => {
         if(err) throw err;
-        if(!user) {
-            return res.json({succes: false, msg: 'Not User'})
-        };
-
-        User.comparePass(password, user.password, (err, isMatch) => {
+        if(!user) { return res.json({succes: false, msg: 'Not User'})};
+        console.log('>>>>COMPARE>>>>>', password, user, user.pass );
+        User.comparePass(password, user.pass, (err, isMatch) => {
             if(err) throw err;
             if(isMatch) {
-                const token = jwt.sign(user.toJSON(), secret, {
-                    expiresIn: 3600 * 24
-                });
+                const token = jwt.sign(user.toJSON(), secret, { expiresIn: 3600 * 24});
 
                 res.json({
                     succes: true,
@@ -51,7 +47,7 @@ router.post('/auth', (req,res) => {
                         id: user._id, //MongoDB
                         name: user.name,
                         login: user.login,
-                        email: user.email,
+                        email: user.email
                     }
                 })
             } else {
